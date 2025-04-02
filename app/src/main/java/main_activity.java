@@ -11,7 +11,7 @@ import java.util.Deque;
 public class main_activity extends AppCompatActivity {
     private TextView tvPhepTinh, tvKetQua;
     private StringBuilder expression = new StringBuilder();
-    private boolean isResultDisplayed = false; // Kiểm tra trạng thái kết quả hiển thị
+    private boolean isResultDisplayed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,22 @@ public class main_activity extends AppCompatActivity {
 
         tvPhepTinh = findViewById(R.id.tvPhepTinh);
         tvKetQua = findViewById(R.id.tvKetQua);
+
+        // Khôi phục dữ liệu khi xoay màn hình
+        if (savedInstanceState != null) {
+            expression = new StringBuilder(savedInstanceState.getString("expression", ""));
+            isResultDisplayed = savedInstanceState.getBoolean("isResultDisplayed", false);
+            tvPhepTinh.setText(expression.toString());
+            tvKetQua.setText(savedInstanceState.getString("result", "0"));
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("expression", expression.toString());
+        outState.putString("result", tvKetQua.getText().toString());
+        outState.putBoolean("isResultDisplayed", isResultDisplayed);
     }
 
     public void onClick(View view) {
@@ -49,6 +65,8 @@ public class main_activity extends AppCompatActivity {
                 break;
             default:
                 if (isResultDisplayed && "+-×÷".contains(buttonText)) {
+                    expression.setLength(0);
+                    expression.append(tvKetQua.getText().toString());
                     isResultDisplayed = false;
                 } else if (isResultDisplayed) {
                     expression.setLength(0);
@@ -78,11 +96,17 @@ public class main_activity extends AppCompatActivity {
 
     private String calculate(String expr) {
         try {
-            return String.valueOf(evaluateExpression(expr));
+            double result = evaluateExpression(expr);
+            if (result == (int) result) {
+                return String.valueOf((int) result);
+            } else {
+                return String.valueOf(result);
+            }
         } catch (Exception e) {
             return "Error";
         }
     }
+
 
     private double evaluateExpression(String expr) {
         expr = expr.replace("×", "*").replace("÷", "/");

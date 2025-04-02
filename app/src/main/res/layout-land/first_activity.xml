@@ -5,30 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    android:orientation="vertical"
-
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp">
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp">
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
         android:background="@drawable/rounded_border"
         android:orientation="vertical"
         android:padding="16dp">
 
-
         <TextView
             android:id="@+id/tvPhepTinh"
             android:layout_width="match_parent"
-            android:layout_height="102dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:ellipsize="start"
             android:gravity="end"
-            android:maxLines="3"
+            android:maxLines="10"
             android:paddingStart="7dp"
             android:paddingEnd="7dp"
             android:text=""
@@ -38,8 +36,8 @@
         <TextView
             android:id="@+id/tvKetQua"
             android:layout_width="match_parent"
-            android:layout_height="95dp"
-            android:layout_marginTop="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:ellipsize="end"
             android:gravity="end"
             android:maxLines="1"
@@ -51,13 +49,13 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
 
         android:orientation="vertical"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp">
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp">
 
         <GridLayout
             android:layout_width="match_parent"
@@ -73,7 +71,7 @@
                 android:background="@drawable/button_ope"
                 android:onClick="onClick"
                 android:text="("
-                android:textSize="24sp"
+                android:textSize="30sp"
                 app:backgroundTint="@null" />
 
             <Button
@@ -82,7 +80,7 @@
                 android:background="@drawable/button_ope"
                 android:onClick="onClick"
                 android:text=")"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 app:backgroundTint="@null" />
 
             <Button
@@ -91,7 +89,7 @@
                 android:background="@drawable/button_rounded"
                 android:onClick="onClick"
                 android:text="%"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 app:backgroundTint="@null" />
 
             <Button
@@ -100,7 +98,7 @@
                 android:background="@drawable/button_ope"
                 android:onClick="onClick"
                 android:text="^"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 app:backgroundTint="@null" />
 
             <Button
@@ -109,7 +107,7 @@
                 android:background="@drawable/button_ope"
                 android:onClick="onClick"
                 android:text="√"
-                android:textSize="24sp"
+                android:textSize="30sp"
                 app:backgroundTint="@null" />
 
 
@@ -128,7 +126,6 @@
                 android:onClick="onClick"
                 android:text="8"
                 app:backgroundTint="@null" />
-
             <Button
                 android:id="@+id/button_9"
                 style="@style/CalculatorButton.Number"
@@ -152,12 +149,10 @@
                 style="@style/CalculatorButton.Function"
                 android:background="@drawable/button_ope"
                 android:fontFamily="sans-serif"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
                 android:onClick="onClick"
                 android:text="DE"
                 android:textColor="#000000"
-                android:textSize="12sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 
@@ -203,7 +198,7 @@
                 android:onClick="onClick"
                 android:text="AC"
                 android:textColor="#000000"
-                android:textSize="12sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 
@@ -287,5 +282,7 @@
         </GridLayout>
 
     </LinearLayout>
+
+
 
 </LinearLayout>
