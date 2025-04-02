@@ -1,0 +1,56 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Tuan2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <!-- Style cơ bản cho các nút Máy tính -->
+    <style name="CalculatorButton">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_gravity">fill</item>
+
+        <item name="android:textSize">20sp</item>
+
+        <item name="android:layout_margin">3dp</item>
+
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+    <style name="CalculatorButton.Number" parent="CalculatorButton">
+
+        <item name="android:backgroundTint">#FFFFFF</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+
+    <style name="CalculatorButton.Operator" parent="CalculatorButton">
+
+        <item name="android:backgroundTint">#eef5f5</item>
+        <item name="android:textColor">#424242</item>
+    </style>
+
+    <!-- Style cho Nút Chức năng (Giống nút toán tử) -->
+    <style name="CalculatorButton.Function" parent="CalculatorButton.Operator">
+        <item name="android:backgroundTint">#d7e1ea</item>
+        <item name="android:textSize">16sp</item> <!-- Chữ nhỏ hơn cho chức năng -->
+    </style>
+
+
+
+    <!-- Style cho Nút Bằng (=) (Nền xám đậm nhất) -->
+    <style name="CalculatorButton.Equals" parent="CalculatorButton">
+        <item name="android:backgroundTint">#546164</item>
+        <item name="android:textColor">#FFFFFF</item> <!-- Chữ trắng -->
+        <item name="android:textSize">28sp</item>
+    </style>
+
+</resources>
