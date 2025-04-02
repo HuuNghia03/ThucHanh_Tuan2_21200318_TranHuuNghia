@@ -6,8 +6,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-
-    <!-- Style cơ bản cho các nút Máy tính -->
     <style name="CalculatorButton">
 
         <item name="android:layout_width">0dp</item>
@@ -21,6 +19,8 @@
         <item name="android:layout_margin">3dp</item>
 
         <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+
     </style>
 
 
@@ -34,22 +34,17 @@
 
     <style name="CalculatorButton.Operator" parent="CalculatorButton">
 
-        <item name="android:backgroundTint">#eef5f5</item>
+        <item name="android:backgroundTint">#E8E8E8</item>
         <item name="android:textColor">#424242</item>
     </style>
-
-    <!-- Style cho Nút Chức năng (Giống nút toán tử) -->
     <style name="CalculatorButton.Function" parent="CalculatorButton.Operator">
         <item name="android:backgroundTint">#d7e1ea</item>
-        <item name="android:textSize">16sp</item> <!-- Chữ nhỏ hơn cho chức năng -->
+        <item name="android:textSize">16sp</item>
     </style>
 
-
-
-    <!-- Style cho Nút Bằng (=) (Nền xám đậm nhất) -->
     <style name="CalculatorButton.Equals" parent="CalculatorButton">
         <item name="android:backgroundTint">#546164</item>
-        <item name="android:textColor">#FFFFFF</item> <!-- Chữ trắng -->
+        <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">28sp</item>
     </style>
 
