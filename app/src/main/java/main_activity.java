@@ -107,12 +107,14 @@ public class main_activity extends AppCompatActivity {
         }
     }
 
-
     private double evaluateExpression(String expr) {
         expr = expr.replace("×", "*").replace("÷", "/");
+        return parseExpression(expr);
+    }
+
+    private double parseExpression(String expr) {
         Deque<Double> numbers = new ArrayDeque<>();
         Deque<Character> operators = new ArrayDeque<>();
-
         int i = 0;
         while (i < expr.length()) {
             char c = expr.charAt(i);
@@ -124,6 +126,11 @@ public class main_activity extends AppCompatActivity {
                 }
                 numbers.push(Double.parseDouble(num.toString()));
                 i--;
+            } else if (c == '(') {
+                int j = findClosingParenthesis(expr, i);
+                double subExprResult = parseExpression(expr.substring(i + 1, j));
+                numbers.push(subExprResult);
+                i = j;
             } else if ("+-*/".indexOf(c) != -1) {
                 while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(c)) {
                     numbers.push(applyOp(operators.pop(), numbers.pop(), numbers.pop()));
@@ -138,6 +145,18 @@ public class main_activity extends AppCompatActivity {
         }
 
         return numbers.pop();
+    }
+
+    private int findClosingParenthesis(String expr, int openIndex) {
+        int balance = 1;
+        int i = openIndex + 1;
+        while (i < expr.length() && balance > 0) {
+            char c = expr.charAt(i);
+            if (c == '(') balance++;
+            else if (c == ')') balance--;
+            i++;
+        }
+        return i - 1;
     }
 
     private int precedence(char op) {
